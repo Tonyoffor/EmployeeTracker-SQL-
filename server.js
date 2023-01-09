@@ -19,8 +19,16 @@ function mainmenu(){
     //call view departments function
    } else if(answer.direction==="view all roles"){
     //call view roles function
-   }
-  })
+   } else if(answer.direction==="view all employees"){
+
+   } else if(answer.direction==="add a department"){
+
+   } else if(answer.direction==="add a role"){
+
+   } else if(answer.direction==="add an employee"){
+
+   } else(answer.direction==="update an employee role")
+  }) 
 
 }
 mainmenu()

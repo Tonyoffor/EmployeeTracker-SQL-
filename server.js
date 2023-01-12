@@ -2,6 +2,7 @@ var fs = require ("fs");
 
 const mysql = require('mysql2');
 const inquirer = require("inquirer")
+const express = require("express")
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -131,6 +132,37 @@ inquirer
 
 }
 function addEmployee(){
+
+  // enter the employee’s first name, last name, role, and manager, and that employee is added to the database
+  inquirer
+  .prompt([
+    {
+      type: 'input',
+      message: 'First Name',
+      name: 'FirsttName',
+    },
+    {
+      type: 'input',
+      message: 'Last Name?',
+      name: 'LastName',
+    },
+    {
+      type: 'input',
+      message: 'Department Name?',
+      name: 'DepartmentName',
+    },
+   
+
+]).then((response) =>{
+  console.log(response)
+       let Department = Department(response.DepartmentName)
+        team.push(Department)
+     console.log(response)
+        mainMenu()
+        
+      });
+
+
 
 }
 mainMenu()

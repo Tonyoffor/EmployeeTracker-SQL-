@@ -1,3 +1,58 @@
+## Employee Tracker Using MYSQL
+
+
+Employee Tracker <br />
+
+
+  ## Description
+  This code application can be used by an organization to keep track of their employees. It is designed to start run on the command line terminal 
+   <br />
+ 
+  ## Table of Contents
+  - [Title](#title)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributors](#contributors)
+  - [Tests](#tests)
+  - [Questions](#questions)
+
+  ## Installation
+For this project I installed Node.js <br> Npm <br> Inquirer<br> Package.json <br> Express <br> MySQL2 <br> console.tablepackage
+
+## Usage
+This application is the blue print for a content management systems (CMS) for a small size company. It is meant to be used my a company to keep track of their employees in different departments; their roles, names and other imprtant information that is needed.
+
+[Click Me to see walkthrough](
+    
+)  <br />
+## License
+
+This application is not covered by any license. 
+
+
+## Contributors
+In this I, Anthony Offor, was the primary contributor to the application; secondary contributor was Sachin the teaching assistants during the program who helped me correct some errors in my code from time to time.
+
+## Testing
+I used Jest to test my applications for the employee, engineer, manager and intern variables
+
+## Questions
+If you have any further questions you can contact me on:<br />
+  -GitHub: [Tonyoffor](https://github.com/Tonyoffor)<br />
+<br />
+  -Email: tonyc.offor@gmail.com<br /><br />
+  
+
+
+
+
+
+
+
+
+
 AS A business owner
 I WANT to be able to view and manage the departments, roles, and employees in my company
 SO THAT I can organize and plan my business

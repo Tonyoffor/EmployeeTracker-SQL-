@@ -6,6 +6,7 @@ CREATE TABLE department (
     id INT PRIMARY KEY AUTO_INCREMENT,
     dept_name VARCHAR(30) NOT NULL
 );
+-- this set of comands is meant to create the role the forign key here is connected to the department 
  CREATE TABLE role(
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
@@ -13,7 +14,7 @@ CREATE TABLE department (
     dept_id INT,
     FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE
 );
-
+-- this command creates the info for employees
 CREATE TABLE employee(
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 
-
+//this line creates a connection block to connect to mysql
 const db = mysql.createConnection(
   {
     host: 'localhost',
@@ -21,7 +21,7 @@ const db = mysql.createConnection(
   console.log(`Connected to the company_db database.`)
 );
 
-//create a connection block to connect to mysql mysql create connection
+
 //
 function mainMenu(){
   inquirer.prompt({

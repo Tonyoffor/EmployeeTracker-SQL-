@@ -5,7 +5,7 @@ Employee Tracker <br />
 
 
   ## Description
-  This code application can be used by an organization to keep track of their employees. It is designed to start run on the command line terminal 
+  This code application can be used by an organization to keep track of the entire company. It is designed to start run on the command line terminal and give the user the ability to viiew their departments, employees and managers in tables on the command line. 
    <br />
  
   ## Table of Contents
@@ -22,7 +22,7 @@ Employee Tracker <br />
 For this project I installed Node.js <br> Npm <br> Inquirer<br> Package.json <br> Express <br> MySQL2 <br> console.tablepackage
 
 ## Usage
-This application is the blue print for a content management systems (CMS) for a small size company. It is meant to be used my a company to keep track of their employees in different departments; their roles, names and other imprtant information that is needed.
+This application is the blue print for a content management systems (CMS) for a small size company. It is meant to be used my a company to keep track of their employees in different departments; their roles, names and other imprtant information that is needed. The user and add to the database as the organization grows and keep track of changes are made in the different departments over time.
 
 [Click Me to see walkthrough](
     
@@ -36,7 +36,7 @@ This application is not covered by any license.
 In this I, Anthony Offor, was the primary contributor to the application; secondary contributor was Sachin the teaching assistants during the program who helped me correct some errors in my code from time to time.
 
 ## Testing
-I used Jest to test my applications for the employee, engineer, manager and intern variables
+In this project I tested my code in the terminal to see if there was an error in the code.
 
 ## Questions
 If you have any further questions you can contact me on:<br />
@@ -46,32 +46,3 @@ If you have any further questions you can contact me on:<br />
   
 
 
-
-
-
-
-
-
-
-AS A business owner
-I WANT to be able to view and manage the departments, roles, and employees in my company
-SO THAT I can organize and plan my business
-
-
-GIVEN a command-line application that accepts user input
-WHEN I start the application
-THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
-WHEN I choose to view all departments
-THEN I am presented with a formatted table showing department names and department ids (done)
-WHEN I choose to view all roles
-THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role (done)
-WHEN I choose to view all employees
-THEN I am presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to (done)
-WHEN I choose to add a department
-THEN I am prompted to enter the name of the department and that department is added to the database
-WHEN I choose to add a role
-THEN I am prompted to enter the name, salary, and department for the role and that role is added to the database
-WHEN I choose to add an employee
-THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
-WHEN I choose to update an employee role
-THEN I am prompted to select an employee to update and their new role and this information is updated in the database

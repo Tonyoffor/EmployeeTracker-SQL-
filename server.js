@@ -2,7 +2,9 @@ var fs = require ("fs");
 
 const mysql = require('mysql2');
 const inquirer = require("inquirer")
-const express = require("express")
+const express = require("express");
+const { Console } = require("console");
+const { response } = require("express");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -41,15 +43,16 @@ function mainMenu(){
     viewAllEmployees()
    } else if(answer.direction==="add a department"){
     console.log("add a department")
+    addDepartment()
    } else if(answer.direction==="add a role"){
     console.log("add a role")
     addRole()
    } else if(answer.direction==="add an employee"){
     console.log("add an employee")
-    addDepartment()
-   } else(answer.direction==="update an employee role")
-    console.log("add an employee")
     addEmployee()
+   } else(answer.direction==="update an employee role")
+    console.log("update an employee role")
+    
   }) 
 
 }
@@ -72,8 +75,15 @@ function viewAllEmployees(){
 })
 }
 function addRole(){
+ db.query('SELECT * FROM role'), function(err, results){
+  console.log(results);
+ }
 
   
+  // .then(() => console.log…..
+  
+  // .then(() => function that you called in the beginning to load prompts
+
   // enter the name, salary, and department for the role and that role is added to the database
   inquirer
   .prompt([
@@ -93,7 +103,6 @@ function addRole(){
       name: 'DepartmentName',
     },
    
-
 ]).then((response) =>{
   console.log(response)
        let Role = Role(response.RoleName, response.Salary, response.DepartmentName)
@@ -102,29 +111,28 @@ function addRole(){
         mainMenu()
         
       });
-
-
-
 }
+
+//remember that each function needs its own db.query to connect to the mysql
 function addDepartment(){
 
-// enter the name of the department and that department is added to the database
-inquirer
+  inquirer
   .prompt([
     {
       type: 'input',
       message: 'Department Name?',
       name: 'DepartmentName',
     },
-    
-   
+
 
 ]).then((response) =>{
   console.log(response)
-       let Department = Department(response.DepartmentName)
-        team.push(Department)
-     console.log(response)
-        mainMenu()
+  db.query(`INSERT INTO department(dept_name) values ('${response.DepartmentName}');`), function(err,results){
+    console.log(results)
+   }
+    //     team.push(Department)
+    //  console.log(response)
+       mainMenu()
         
       });
 
@@ -132,6 +140,10 @@ inquirer
 
 }
 function addEmployee(){
+
+  db.query(`INSERT INTO employee(employee) values ('${response.FirstName}', '${response.LastName}', '${response.role}', '${response.manager}')`), function(err,results){
+    console.log(results)
+  }
 
   // enter the employee’s first name, last name, role, and manager, and that employee is added to the database
   inquirer
@@ -148,14 +160,17 @@ function addEmployee(){
     },
     {
       type: 'input',
-      message: 'Department Name?',
-      name: 'DepartmentName',
+      message: 'What is their role?',
+      name: 'role',
     },
-   
-
+    {
+      type: 'input',
+      message: 'Who is their manager?',
+      name: 'manager',
+    },
 ]).then((response) =>{
   console.log(response)
-       let Department = Department(response.DepartmentName)
+       let department = department(response.DepartmentName)
         team.push(Department)
      console.log(response)
         mainMenu()

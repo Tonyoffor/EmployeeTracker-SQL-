@@ -93,7 +93,7 @@ async function addRole() { //make sure your snytax down here match with those in
         type: 'list',
         message: ' What is the role name?',
         name: 'RoleName',
-        
+
       },
       {
         type: 'input',
@@ -145,16 +145,13 @@ function addDepartment() {
       })
 
     })
-
-
-
 }
 
 async function addEmployee() {
-const [roles]=await db.promise().query("SELECT * FROM role")
-const rolearray=roles.map(role =>({name:role.title, value:role.id}))
-const [managers]=await db.promise().query("SELECT * FROM employee")
-const managerarray=managers.map(manager =>({name:manager.first_name + " " + manager.last_name, value:manager.id}))
+  const [roles] = await db.promise().query("SELECT * FROM role")
+  const rolearray = roles.map(role => ({ name: role.title, value: role.id }))
+  const [managers] = await db.promise().query("SELECT * FROM employee")
+  const managerarray = managers.map(manager => ({ name: manager.first_name + " " + manager.last_name, value: manager.id }))
   // enter the employee’s first name, last name, role, and manager, and that employee is added to the database
   inquirer
     .prompt([
@@ -172,30 +169,31 @@ const managerarray=managers.map(manager =>({name:manager.first_name + " " + mana
         type: 'list',
         message: 'What is their role?',
         name: 'role',
-        choices:rolearray,
+        choices: rolearray,
       },
       {
         type: 'list',
         message: 'Who is their manager?',
         name: 'manager',
-        choices:managerarray,
+        choices: managerarray,
       },
     ]).then((response) => {
       console.log(response)
       // const roleobj={title: response.}
-      db.promise().query(`INSERT INTO employee values ('${response.DepartmentName}');`).then(([results]) => {
-        console.log(results.affectedRows)
-        if (results.affectedRows > 0) {
-          viewAllDepartements()
-        } else {
-          console.info("Failed to add to Database")
-          mainMenu()
-        }
-      })
-      // first_name, last_name, role_id, manager_id
+      db.promise().query(`INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES ('${response.FirstName}', '${response.LastName}', '${response.role}', ${response.manager})`)
+        .then(([results]) => {
+          // console.log(results.affectedRows)
+          if (results.affectedRows > 0) {
+            viewAllDepartements()
+          } else {
+            console.info("Failed to add to Database")
+            mainMenu()
+          }
+        })
+      // 
     })
-    
-    
+
+
     .then((response) => {
       console.log(response)
     }); //make an employee object that mach the database

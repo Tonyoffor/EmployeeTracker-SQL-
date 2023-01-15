@@ -194,9 +194,7 @@ async function addEmployee() {
     })
 
 
-    .then((response) => {
-      console.log(response)
-    }); //make an employee object that mach the database
+  //make an employee object that mach the database
 }
 
 function updateEmployeeRole() {
@@ -211,10 +209,10 @@ function updateEmployeeRole() {
         name: 'Role',
       },
     ]).then((response) => {
-      db.query(`UPDATE employee(role) values ('${response.role}')`), function (err, results) {
+      console.log(response);
+      db.query(`UPDATE employee(role) SET employee(role)=('${response.Role}') WHERE employee(role)=${response.Role}`), function (err, results) {
         console.log(results)
-
-
+        mainMenu()
       }
     })
 }

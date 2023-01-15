@@ -90,9 +90,10 @@ async function addRole() { //make sure your snytax down here match with those in
   inquirer
     .prompt([
       {
-        type: 'input',
+        type: 'list',
         message: ' What is the role name?',
         name: 'RoleName',
+        
       },
       {
         type: 'input',
@@ -124,7 +125,6 @@ async function addRole() { //make sure your snytax down here match with those in
 
 //remember that each function needs its own db.query to connect to the mysql
 function addDepartment() {
-
   inquirer
     .prompt([
       {
@@ -181,6 +181,22 @@ const managerarray=managers.map(manager =>({name:manager.first_name + " " + mana
         choices:managerarray,
       },
     ]).then((response) => {
+      console.log(response)
+      // const roleobj={title: response.}
+      db.promise().query(`INSERT INTO employee values ('${response.DepartmentName}');`).then(([results]) => {
+        console.log(results.affectedRows)
+        if (results.affectedRows > 0) {
+          viewAllDepartements()
+        } else {
+          console.info("Failed to add to Database")
+          mainMenu()
+        }
+      })
+      // first_name, last_name, role_id, manager_id
+    })
+    
+    
+    .then((response) => {
       console.log(response)
     }); //make an employee object that mach the database
 }
